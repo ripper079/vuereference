@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Ref</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <h1>Hello, Vue :)</h1>
+
+    <div id="app-custom">
+
+        <p> {{ title }} - {{ author }} - {{ age }} </p>
+
+        <!-- Events here -->
+        <!-- Using directives starts with v -->
+        <!-- One way of doing it -->
+        <button v-on:click="age++">Increase age by one</button>
+        <!-- shortcur v-on with @ -->
+        <button @:click="age--">Decrease age by one</button>
+        <button @:click="changeTitle">Change Title</button>
+        <button @:click="changeAuthor('Daniel BIGtime')">Change Author</button>
+
+        <!-- Conditional rendering -->
+        <h4 v-if="bestseller">A bestseller book</h4>
+        <h4 v-else>Need to work more if selling is low</h4>
+
+        <!-- Outputting list -->
+        <div>
+            <h2>All Cars</h2>
+            <ul>
+                <li v-for="singlecar in cars">
+                    <h3>Info about car {{ singlecar.manufacturer }} and {{ singlecar.modelcar }}</h3>
+                </li>
+            </ul>
+        </div>
+
+        <!--  Attribute binding -->
+        <a v-bind:href="urlgeek">Only for computer geeks</a><br>
+        <!-- Alternative shortcut -->
+        <a :href="urlnews">Swedish news</a><br>
+
+        <div>
+            <h2>Filtered Cars - Only Sedans</h2>
+            <ul>
+                <li v-for="car in filterCarsSedan">
+                    <h3>Car {{ car.manufacturer }} and {{ car.modelcar }}</h3>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
